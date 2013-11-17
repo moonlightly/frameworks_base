@@ -1848,6 +1848,42 @@ public final class Settings {
         public static final int SCREEN_BRIGHTNESS_MODE_AUTOMATIC = 1;
 
         /**
+         * Custom automatic brightness light sensor levels.
+         * The value is a comma separated int array with length N.
+         * Example: "100,300,3000".
+         *
+         * @hide
+         */
+        public static final String AUTO_BRIGHTNESS_LUX = "auto_brightness_lux";
+
+        /**
+         * Custom automatic brightness display backlight brightness values.
+         * The value is a comma separated int array with length N+1.
+         * Example: "10,50,100,255".
+         *
+         * @hide
+         */
+        public static final String AUTO_BRIGHTNESS_BACKLIGHT = "auto_brightness_backlight";
+
+        /**
+         * Correction factor for auto-brightness adjustment light sensor
+         * debounce times.
+         * Smaller factors will make the adjustment more responsive, but might
+         * cause flicker and/or cause higher CPU usage.
+         * Valid range is 0.2 ... 3
+         *
+         * @hide
+         */
+        public static final String AUTO_BRIGHTNESS_RESPONSIVENESS = "auto_brightness_responsiveness";
+
+        /**
+         * Whether to enable adjustment of automatic brightness adjustment
+         * to sunrise and sunset.
+         * @hide
+         */
+        public static final String AUTO_BRIGHTNESS_TWILIGHT_ADJUSTMENT = "auto_brightness_twilight_adjustment";
+
+        /**
          * Control whether the process CPU usage meter should be shown.
          *
          * @deprecated Use {@link Global#SHOW_PROCESSES} instead
@@ -1971,6 +2007,103 @@ public final class Settings {
         @Deprecated
         public static final String NOTIFICATIONS_USE_RING_VOLUME =
             "notifications_use_ring_volume";
+
+        /**
+         * Volume Overlay Mode, This is behaviour of the volume overlay panel
+         * Defaults to 1 - which is expandable
+         * @hide
+         */
+        public static final String MODE_VOLUME_OVERLAY = "mode_volume_overlay";
+
+        /** @hide */
+        public static final int VOLUME_OVERLAY_SINGLE = 0;
+        /** @hide */
+        public static final int VOLUME_OVERLAY_EXPANDABLE = 1;
+        /** @hide */
+        public static final int VOLUME_OVERLAY_EXPANDED = 2;
+        /** @hide */
+        public static final int VOLUME_OVERLAY_NONE = 3;
+
+        /**
+         * Whether the blacklisting feature for phone calls is enabled
+         * @hide
+         */
+        public static final String PHONE_BLACKLIST_ENABLED = "phone_blacklist_enabled";
+
+        /**
+         * Whether a notification should be shown when a call/message is blocked
+         * @hide
+         */
+        public static final String PHONE_BLACKLIST_NOTIFY_ENABLED = "phone_blacklist_notify_enabled";
+
+        /**
+         * Whether the blacklisting feature for phone calls from private numbers is enabled
+         * @hide
+         */
+        public static final String PHONE_BLACKLIST_PRIVATE_NUMBER_MODE = "phone_blacklist_private_number_enabled";
+
+        /**
+         * Whether the blacklisting feature for phone calls from private numbers is enabled
+         * @hide
+         */
+        public static final String PHONE_BLACKLIST_UNKNOWN_NUMBER_MODE = "phone_blacklist_private_number_enabled";
+
+        /**
+         * Constants to be used for {@link PHONE_BLACKLIST_PRIVATE_NUMBER_MODE} and
+         * {@link PHONE_BLACKLIST_UNKNOWN_NUMBER_MODE}.
+         * @hide
+         */
+        public static final int BLACKLIST_DO_NOT_BLOCK = 0;
+        /**
+         * @hide
+         */
+        public static final int BLACKLIST_BLOCK = 1;
+        /**
+         * @hide
+         */
+        public static final int BLACKLIST_PHONE_SHIFT = 0;
+        /**
+         * @hide
+         */
+        public static final int BLACKLIST_MESSAGE_SHIFT = 4;
+
+        /**
+         * Whether the regex blacklisting feature for phone calls is enabled
+         * @hide
+         */
+        public static final String PHONE_BLACKLIST_REGEX_ENABLED = "phone_blacklist_regex_enabled";
+
+        /**
+         * Whether the phone ringtone should be played in an increasing manner
+         * @hide
+         */
+        public static final String INCREASING_RING = "increasing_ring";
+
+        /**
+         * Minimum volume index for increasing ring volume
+         * @hide
+         */
+        public static final String INCREASING_RING_MIN_VOLUME = "increasing_ring_min_vol";
+
+        /**
+         * Time (in ms) between ringtone volume increases
+         * @hide
+         */
+        public static final String INCREASING_RING_INTERVAL = "increasing_ring_interval";
+
+        /**
+         * Volume Adjust Sounds Enable, This is the noise made when using volume hard buttons
+         * Defaults to 1 - sounds enabled
+         * @hide
+         */
+        public static final String VOLUME_ADJUST_SOUNDS_ENABLED = "volume_adjust_sounds_enabled";
+
+        /**
+         * Boolean value whether to link ringtone and notification volumes
+         *
+         * @hide
+         */
+        public static final String VOLUME_LINK_NOTIFICATION = "volume_link_notification";
 
         /**
          * Whether silent mode should allow vibration feedback. This is used
@@ -2590,6 +2723,224 @@ public final class Settings {
         public static final String POWER_MENU_CONFIG = "power_menu_config";
 
         /**
+         * Volume rocker wake
+         * @hide
+         */
+        public static final String VOLUME_WAKE_SCREEN = "volume_wake_screen";
+
+        /**
+         * Volume music controls
+         * @hide
+         */
+        public static final String VOLUME_MUSIC_CONTROLS = "volume_music_controls";
+
+        /**
+         * Whether to prevent loud volume levels when headset is first plugged in.
+         * @hide
+         */
+        public static final String SAFE_HEADSET_VOLUME = "safe_headset_volume";
+
+        /**
+         * Electronic beam animation mode
+         * 0 = off,
+         * 1 = always horizontal,
+         * 2 = always vertical,
+         * 3 = dependent on orientation
+         * @hide
+         */
+        public static final String SYSTEM_POWER_CRT_MODE = "system_power_crt_mode";
+
+        /**
+          * Volume keys control cursor in text fields (default is 0)
+          * 0 - Disabled
+          * 1 - Volume up/down moves cursor left/right
+          * 2 - Volume up/down moves cursor right/left
+          * @hide
+          */
+         public static final String VOLUME_KEY_CURSOR_CONTROL = "volume_key_cursor_control";
+
+        /**
+         * Override and forcefully disable the fullscreen keyboard
+         * @hide
+         */
+        public static final String DISABLE_FULLSCREEN_KEYBOARD = "disable_fullscreen_keyboard";
+
+        /**
+         * Whether to show the IME switcher in the status bar
+         * @hide
+         */
+        public static final String STATUS_BAR_IME_SWITCHER = "status_bar_ime_switcher";
+
+        /**
+         * Automatic keyboard rotation timeout.  0 to disable completely.
+         * @hide
+         */
+        public static final String KEYBOARD_ROTATION_TIMEOUT = "keyboard_rotation_timeout";
+
+        /**
+         * Forces formal text input.  1 to replace emoticon key with enter key.
+         * @hide
+         */
+        public static final String FORMAL_TEXT_INPUT = "formal_text_input";
+
+        /**
+         * Display style of the status bar battery information
+         * default: 0
+         * @hide
+         */
+        public static final String STATUS_BAR_BATTERY = "status_bar_battery";
+
+        /**
+         * Circle battery icon color
+         * in statusbar
+         * @hide
+         */
+        public static final String STATUS_BAR_BATTERY_COLOR = "status_bar_battery_color";
+
+        /**
+         * Battery icon text color
+         * in statusbar
+         * @hide
+         */
+        public static final String STATUS_BAR_BATTERY_TEXT_COLOR = "status_bar_battery_text_color";
+
+        /**
+         * Battery icon text charging color
+         * in statusbar
+         * @hide
+         */
+        public static final String STATUS_BAR_BATTERY_TEXT_CHARGING_COLOR =
+                "status_bar_battery_text_charging_color";
+
+        /**
+         * Circle battery animation speed during charge
+         * in statusbar
+         * @hide
+         */
+        public static final String STATUS_BAR_CIRCLE_BATTERY_ANIMATIONSPEED =
+                "status_bar_circle_battery_animationspeed";
+
+        /**
+        * Whether to control brightness from status bar
+        *
+        * @hide
+        */
+       public static final String STATUS_BAR_BRIGHTNESS_CONTROL = "status_bar_brightness_control";
+
+        /**
+         * Navigation bar button color
+         * @hide
+         */
+        public static final String NAVIGATION_BAR_BUTTON_TINT = "navigation_bar_button_tint";
+
+        /**
+         * Option To Colorize Navigation bar buttons in different modes
+         * 0 = all, 1 = system icons, 2 = system icons + custom user icons
+         * @hide
+         */
+        public static final String NAVIGATION_BAR_BUTTON_TINT_MODE = "navigation_bar_button_tint_mode";
+
+        /**
+         * Navigation bar glow color
+         * @hide
+         */
+        public static final String NAVIGATION_BAR_GLOW_TINT = "navigation_bar_glow_tint";
+
+        /**
+         * Wether navigation bar is enabled or not
+         * @hide
+         */
+        public static final String NAVIGATION_BAR_SHOW = "navigation_bar_show";
+
+        /**
+         * Wether navigation bar is on landscape on the bottom or on the right
+         * @hide
+         */
+        public static final String NAVIGATION_BAR_CAN_MOVE = "navigation_bar_can_move";
+
+        /**
+         * Navigation bar height when it is on protrait
+         * @hide
+         */
+        public static final String NAVIGATION_BAR_HEIGHT = "navigation_bar_height";
+
+        /**
+         * Navigation bar height when it is on landscape at the bottom
+         * @hide
+         */
+        public static final String NAVIGATION_BAR_HEIGHT_LANDSCAPE = "navigation_bar_height_landscape";
+
+        /**
+         * Navigation bar height when it is on landscape at the right
+         * @hide
+         */
+        public static final String NAVIGATION_BAR_WIDTH = "navigation_bar_width";
+
+        /**
+         * Custom navigation bar intent and action configuration
+         * @hide
+         */
+        public static final String NAVIGATION_BAR_CONFIG = "navigation_bar_config";
+
+        /**
+         * Custom navring intent and action configuration
+         *
+         * @hide
+         */
+        public static final String NAVRING_CONFIG = "navring_config";
+
+        /**
+         * Wether the navbar menu button is on the left/right/both
+         * @hide
+         */
+        public static final String MENU_LOCATION = "menu_location";
+
+        /**
+         * Wether the navbar menu button should show or not
+         * @hide
+         */
+        public static final String MENU_VISIBILITY = "menu_visibility";
+
+        /**
+         * Battery warning preferences
+         *
+         * 0 = show dialog + play sound (default)
+         * 1 = fire notification + play sound
+         * 2 = show dialog only
+         * 3 = fire notification only
+         * 4 = play sound only
+         * 5 = none
+         * @hide
+         */
+        public static final String POWER_UI_LOW_BATTERY_WARNING_POLICY = "power_ui_low_battery_warning_policy";
+
+
+        /**
+         * Hide carrier information on notification drawer
+         * @hide
+         */
+        public static final String NOTIFICATION_HIDE_CARRIER = "notification_hide_carrier";
+
+
+        /**
+          * Stores values for notification shortcut targets
+          * @hide
+          */
+        public static final String NOTIFICATION_SHORTCUTS_CONFIG = "notification_shortcuts_config";
+
+        /**
+         * Stores the value for notification shortcuts icon color
+         * @hide
+         */
+        public static final String NOTIFICATION_SHORTCUTS_COLOR = "notification_shortcuts_color";
+
+        /**
+         * Whether to colorize the default application icons
+         * @hide
+         */
+        public static final String NOTIFICATION_SHORTCUTS_COLOR_MODE = "notification_shortcuts_color_mode";
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
@@ -2654,7 +3005,12 @@ public final class Settings {
             POINTER_SPEED,
             VIBRATE_WHEN_RINGING,
             RINGTONE,
-            NOTIFICATION_SOUND
+            NOTIFICATION_SOUND,
+            PHONE_BLACKLIST_ENABLED,
+            PHONE_BLACKLIST_NOTIFY_ENABLED,
+            PHONE_BLACKLIST_PRIVATE_NUMBER_MODE,
+            PHONE_BLACKLIST_UNKNOWN_NUMBER_MODE,
+            PHONE_BLACKLIST_REGEX_ENABLED,
         };
 
         // Settings moved to Settings.Secure
@@ -4944,6 +5300,24 @@ public final class Settings {
         public static final String POWER_SOUNDS_ENABLED = "power_sounds_enabled";
 
         /**
+         * Whether to sound when charger power is connected/disconnected
+         * @hide
+         */
+        public static final String POWER_NOTIFICATIONS_ENABLED = "power_notifications_enabled";
+
+        /**
+         * Whether to vibrate when charger power is connected/disconnected
+         * @hide
+         */
+        public static final String POWER_NOTIFICATIONS_VIBRATE = "power_notifications_vibrate";
+
+        /**
+         * URI for power notification sounds
+         * @hide
+         */
+        public static final String POWER_NOTIFICATIONS_RINGTONE = "power_notifications_ringtone";
+
+        /**
          * URI for the "wireless charging started" sound.
          * @hide
          */
@@ -6146,6 +6520,9 @@ public final class Settings {
             AUTO_TIME,
             AUTO_TIME_ZONE,
             POWER_SOUNDS_ENABLED,
+            POWER_NOTIFICATIONS_ENABLED,
+            POWER_NOTIFICATIONS_VIBRATE,
+            POWER_NOTIFICATIONS_RINGTONE,
             DOCK_SOUNDS_ENABLED,
             USB_MASS_STORAGE_ENABLED,
             ENABLE_ACCESSIBILITY_GLOBAL_GESTURE_ENABLED,
